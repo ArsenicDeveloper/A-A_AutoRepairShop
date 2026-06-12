@@ -3,8 +3,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  BadgeCheck, Home, Zap, HandshakeIcon, Banknote,
-  Users, ShieldCheck, Star,
+  BadgeCheck,
+  Home,
+  Zap,
+  Handshake,
+  Banknote,
+  Users,
+  ShieldCheck,
+  Star,
 } from "lucide-react";
 
 const FEATURES = [
@@ -30,7 +36,7 @@ const FEATURES = [
     color: "orange",
   },
   {
-    icon: HandshakeIcon,
+    icon: Handshake,
     title: "Honest Service",
     description:
       "We explain everything clearly before we start. Transparent pricing — no hidden charges, ever.",
@@ -87,7 +93,6 @@ export default function WhyChooseUs() {
       className="relative py-24 lg:py-32 bg-[#05070d] overflow-hidden"
       aria-labelledby="why-us-heading"
     >
-      {/* Decorative orb */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full pointer-events-none"
         style={{
@@ -98,7 +103,6 @@ export default function WhyChooseUs() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -124,7 +128,6 @@ export default function WhyChooseUs() {
           </p>
         </motion.div>
 
-        {/* Feature grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -142,14 +145,12 @@ export default function WhyChooseUs() {
                 transition={{ duration: 0.2 }}
                 className="group relative p-6 rounded-2xl glass border border-white/[0.06] hover:border-orange-500/20 transition-all duration-300"
               >
-                {/* Number badge */}
                 <div className="absolute top-4 right-4 w-6 h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
                   <span className="text-[10px] font-mono text-gray-600">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                {/* Icon */}
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 ${
                     isOrange
@@ -171,7 +172,6 @@ export default function WhyChooseUs() {
                   {feature.description}
                 </p>
 
-                {/* Left accent */}
                 <div
                   className={`absolute left-0 top-6 bottom-6 w-[2px] rounded-full scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top ${
                     isOrange ? "bg-orange-500/50" : "bg-cyan-400/40"
