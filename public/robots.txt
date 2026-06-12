@@ -1,4 +1,26 @@
-User-agent: *
-Allow: /
+import type { MetadataRoute } from "next";
 
-Sitemap: https://aa-auto-repair.vercel.app/sitemap.xml
+function getBaseUrl(): string {
+  // Vercel sets VERCEL_URL automatically on every deployment
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  // Optional: set NEXT_PUBLIC_SITE_URL in Vercel env vars for a custom domain
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL;
+  }
+  // Local development fallback
+  return "http://localhost:3000";
+}
+
+export default function robots(): MetadataRoute.Robots {
+  const baseUrl = getBaseUrl();
+
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+    },
+    sitemap: `${baseUrl}/sitemap.xml`,
+  };
+}
