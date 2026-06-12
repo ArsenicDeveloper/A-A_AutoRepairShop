@@ -21,4 +21,3 @@ export default function ScrollProgress() {
     </motion.div>
   );
 }
-,
